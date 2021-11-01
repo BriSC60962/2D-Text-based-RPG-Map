@@ -11,7 +11,11 @@ namespace _2D_Text_based_RPG_Map
         static void Main(string[] args)
         {
             Console.WriteLine("2D Text-based RPG Map");
-
+            Console.WriteLine("By: Brianna Chisholm");
+            Console.ReadKey(true);
+            Console.WriteLine();
+            DisplayMapLegend();
+            Console.ReadKey(true);
             Console.WriteLine();
             DisplayMap();
             Console.ReadKey(true);
@@ -90,6 +94,21 @@ namespace _2D_Text_based_RPG_Map
                 }
             }
 
+        }
+        static void DisplayMapLegend()
+        {
+            string[,] legend = new string[1, 6]
+            {
+              { "Map Legend" ,"///////////" , "^ = Mountain" , "' = Grass" , "~ = Water" , "* = Trees"}
+            };
+            for (int x = 0; x <= 0; x++)
+            {
+
+                for (int y = 0; y <= 5; y++)
+                {
+                    Console.WriteLine(legend[x, y]);
+                }
+            }
         }
     }
 }
