@@ -49,13 +49,19 @@ namespace _2D_Text_based_RPG_Map
 
             for (int y = 0; y <= 11; y++) // starts at 0 to 11
             {
-
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.Write("║");
                 for (int x = 0; x <= 29; x++)
                 {
+                    if (Map[y, x] == "^") { Console.ForegroundColor = ConsoleColor.White;}
+                    else if (Map[y, x] == "*") { Console.ForegroundColor = ConsoleColor.Green;}
+                    else if (Map[y, x] == "'") { Console.ForegroundColor = ConsoleColor.Yellow;}
+                    else if (Map[y, x] == "~") { Console.ForegroundColor = ConsoleColor.Blue;}
+                    else { Console.ForegroundColor = ConsoleColor.Gray;}
                     Console.Write(Map[y, x]);
                 }
-
-                Console.WriteLine(""); // Prints a space at the end of row
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.WriteLine("║"); 
 
             }
         }
@@ -82,15 +88,22 @@ namespace _2D_Text_based_RPG_Map
             {
                 for (int s = scale; s >= 1; s--)
                 {
-                    Console.WriteLine(" "); // Prints a space at the end of row
+                    Console.Write("║"); 
 
                     for (int x = 0; x <= Map.GetLength(1) - 1; x++)
                     {
                         for (int z = scale; z >= 1; z--)
                         {
+                            
+                            if (Map[y, x] == "^") { Console.ForegroundColor = ConsoleColor.White;}
+                            else if (Map[y, x] == "*") { Console.ForegroundColor = ConsoleColor.Green;}
+                            else if (Map[y, x] == "'") { Console.ForegroundColor = ConsoleColor.Yellow;}
+                            else if (Map[y, x] == "~") { Console.ForegroundColor = ConsoleColor.Blue;}
+                            else { Console.ForegroundColor = ConsoleColor.Gray;}
                             Console.Write(Map[y, x]);
                         }
                     }
+                    Console.WriteLine("║");
                 }
             }
 
@@ -106,6 +119,11 @@ namespace _2D_Text_based_RPG_Map
 
                 for (int y = 0; y <= 5; y++)
                 {
+                    if (legend[x, y] == "^ = Mountain") { Console.ForegroundColor = ConsoleColor.White;}
+                    else if (legend[x, y] == "' = Grass") { Console.ForegroundColor = ConsoleColor.Yellow;}
+                    else if (legend[x, y] == "~ = Water") { Console.ForegroundColor = ConsoleColor.Blue;}
+                    else if (legend[x, y] == "* = Trees") { Console.ForegroundColor = ConsoleColor.Green;}
+                    else { Console.ForegroundColor = ConsoleColor.Gray;}
                     Console.WriteLine(legend[x, y]);
                 }
             }
