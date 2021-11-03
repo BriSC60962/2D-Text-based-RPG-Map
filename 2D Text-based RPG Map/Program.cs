@@ -29,6 +29,9 @@ namespace _2D_Text_based_RPG_Map
 
         static void DisplayMap()
         {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("╔"); Console.Write("══════════════════════════════╗");
+
             string[,] map = new string[,]
             {
              {"^","^","^","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'"},
@@ -49,7 +52,7 @@ namespace _2D_Text_based_RPG_Map
 
             for (int y = 0; y <= 11; y++) // starts at 0 to 11
             {
-                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write("║");
                 
                     for (int x = 0; x <= 29; x++)
@@ -61,15 +64,21 @@ namespace _2D_Text_based_RPG_Map
                         else { Console.ForegroundColor = ConsoleColor.Gray; }
                         Console.Write(map[y, x]);
                     }
-                    Console.ForegroundColor = ConsoleColor.Gray;
-                    Console.WriteLine("║");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("║");
                 
             }
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("╚"); Console.Write("══════════════════════════════╝");
+            Console.WriteLine();
         }
 
         static void DisplayMap(int scale)
         {
-            string[,] Map = new string[,]
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("╔");
+            
+            string[,] map = new string[,]
             {
              {"^","^","^","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'"},
              {"^","^","'","'","'","'","*","*","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","~","~","~","'","'","'"},
@@ -85,29 +94,37 @@ namespace _2D_Text_based_RPG_Map
              {"'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'"},
             };
 
-            for (int y = 0; y <= Map.GetLength(0) - 1; y++)
+            Console.WriteLine();
+          
+            
+            for (int y = 0; y <= map.GetLength(0) - 1; y++)
             {
+
                 for (int s = scale; s >= 1; s--)
                 {
-                    Console.ForegroundColor = ConsoleColor.Gray;
-                    Console.Write("║"); 
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write("║");
 
-                    for (int x = 0; x <= Map.GetLength(1) - 1; x++)
+                    for (int x = 0; x <= map.GetLength(1) -1; x++)
                     {
                         for (int z = scale; z >= 1; z--)
                         {
-                            if (Map[y, x] == "^") { Console.ForegroundColor = ConsoleColor.White;}
-                            else if (Map[y, x] == "*") { Console.ForegroundColor = ConsoleColor.Green;}
-                            else if (Map[y, x] == "'") { Console.ForegroundColor = ConsoleColor.Yellow;}
-                            else if (Map[y, x] == "~") { Console.ForegroundColor = ConsoleColor.Blue;}
+                            if (map[y, x] == "^") { Console.ForegroundColor = ConsoleColor.White;}
+                            else if (map[y, x] == "*") { Console.ForegroundColor = ConsoleColor.Green;}
+                            else if (map[y, x] == "'") { Console.ForegroundColor = ConsoleColor.Yellow;}
+                            else if (map[y, x] == "~") { Console.ForegroundColor = ConsoleColor.Blue;}
                             else { Console.ForegroundColor = ConsoleColor.Gray;}
-                            Console.Write(Map[y, x]);
+                            Console.Write(map[y, x]);
                         }
+                        
                     }
-                    Console.ForegroundColor = ConsoleColor.Gray;
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("║");
                 }
+                
             }
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("╚"); 
 
         }
         static void DisplayMapLegend()
