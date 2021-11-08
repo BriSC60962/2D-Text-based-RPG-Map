@@ -31,7 +31,7 @@ namespace _2D_Text_based_RPG_Map
         static void DisplayMap() //Calls the Map to Display
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write("╔"); Console.Write("══════════════════════════════╗");
+            Console.Write("╔"); 
             string[,] map = new string[,]
             {
              {"^","^","^","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'"},
@@ -47,6 +47,11 @@ namespace _2D_Text_based_RPG_Map
              {"'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'"},
              {"'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'"},
             };
+            for (int x = 0; x <= map.GetLength(1) - 1; x++)
+            {
+                Console.Write("═");
+            }
+            Console.Write("╗");
             Console.WriteLine();
             for (int y = 0; y <= 11; y++) // starts at 0 to 11
             {
@@ -65,7 +70,12 @@ namespace _2D_Text_based_RPG_Map
                 Console.WriteLine("║");
             }
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write("╚"); Console.Write("══════════════════════════════╝");
+            Console.Write("╚");
+            for (int x = 0; x <= map.GetLength(1) - 1; x++)
+            {
+                Console.Write("═");
+            }
+            Console.Write("╝");
             Console.WriteLine();
         }
 
