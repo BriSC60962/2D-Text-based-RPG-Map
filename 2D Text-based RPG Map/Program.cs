@@ -27,11 +27,11 @@ namespace _2D_Text_based_RPG_Map
             Console.ReadKey(true);
         }
 
-        static void DisplayMap()
+
+        static void DisplayMap() //Calls the Map to Display
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write("╔"); Console.Write("══════════════════════════════╗");
-
             string[,] map = new string[,]
             {
              {"^","^","^","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'"},
@@ -47,14 +47,11 @@ namespace _2D_Text_based_RPG_Map
              {"'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'"},
              {"'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'"},
             };
-
             Console.WriteLine();
-
             for (int y = 0; y <= 11; y++) // starts at 0 to 11
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write("║");
-                
                     for (int x = 0; x <= 29; x++)
                     {
                         if (map[y, x] == "^") { Console.ForegroundColor = ConsoleColor.White; }
@@ -66,18 +63,17 @@ namespace _2D_Text_based_RPG_Map
                     }
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("║");
-                
             }
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write("╚"); Console.Write("══════════════════════════════╝");
             Console.WriteLine();
         }
 
-        static void DisplayMap(int scale)
+
+        static void DisplayMap(int scale) //Sets the Map Size/Scale
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write("╔");
-            
             string[,] map = new string[,]
             {
              {"^","^","^","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'"},
@@ -93,19 +89,20 @@ namespace _2D_Text_based_RPG_Map
              {"'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'"},
              {"'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'","'"},
             };
-
+            for (int x = 0; x <= map.GetLength(1)* scale - 1; x++)
+            {
+                Console.Write("═");
+                
+            }
+            Console.Write("╗");
             Console.WriteLine();
-          
-            
             for (int y = 0; y <= map.GetLength(0) - 1; y++)
             {
-
                 for (int s = scale; s >= 1; s--)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.Write("║");
-
-                    for (int x = 0; x <= map.GetLength(1) -1; x++)
+                    for (int x = 0; x <= map.GetLength(1) - 1; x++)
                     {
                         for (int z = scale; z >= 1; z--)
                         {
@@ -116,18 +113,23 @@ namespace _2D_Text_based_RPG_Map
                             else { Console.ForegroundColor = ConsoleColor.Gray;}
                             Console.Write(map[y, x]);
                         }
-                        
                     }
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("║");
                 }
-                
             }
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write("╚"); 
-
+            Console.Write("╚");
+            for (int x = 0; x <= map.GetLength(1) * scale - 1; x++)
+            {
+                Console.Write("═");
+            }
+            Console.Write("╝");
+            Console.WriteLine();
         }
-        static void DisplayMapLegend()
+
+
+        static void DisplayMapLegend() // Displays the Legend 
         {
             string[,] legend = new string[1, 6]
             {
@@ -135,7 +137,6 @@ namespace _2D_Text_based_RPG_Map
             };
             for (int x = 0; x <= 0; x++)
             {
-
                 for (int y = 0; y <= 5; y++)
                 {
                     if (legend[x, y] == "^ = Mountain") { Console.ForegroundColor = ConsoleColor.White;}
